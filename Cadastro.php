@@ -34,9 +34,7 @@
             <input type="submit" name="enviar" value="excluir último">
   </form>
 
-
-  <fieldset>
-    <table>
+    <table border= "1">
       <form class='form' method ='post' action='DelDireto.php'>
         <?php
           $sql = "SELECT * FROM aluno";
@@ -59,6 +57,6 @@
         ?>
       </form>
     </table>
-      </fieldset>
+
 </body>
 </html>
