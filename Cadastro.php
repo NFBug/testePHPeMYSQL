@@ -23,12 +23,6 @@
             <input type="submit" name="enviar" value="enviar">
     </form>
 
-    <form class="form" method ="post" action="del.php">
-            <label for="excluir">excluir:</label>
-            <input type="text" id="excluir" name="excluir" placeholder="Digite o nome" >
-            <input type="submit" name="enviar" value="excluir">
-  </form>
-
   <form class="form" method ="post" action="deleta.php">
             <br>
             <input type="submit" name="enviar" value="excluir último">
