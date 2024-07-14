@@ -1,23 +1,22 @@
 <?php
- require("conecta.php");
+require("conecta.php");
 
- $nome = $_POST['nome'];
- $nascimento = $_POST['data'];
- $renda = $_POST['renda'];
- $excluir = $_POST['excluir'];
+$excluir = $_POST['excluir'];
 
- if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
 
- $sql = "DELETE FROM aluno WHERE id=(select MAX(id) from aluno);";
+$sql = $conn->prepare("DELETE FROM usuarios WHERE id = ?");
+$sql->bind_param("i", $excluir);
 
- if ($conn->query($sql) == TRUE) {
-    header("location: Cadastro.php");
-}else{
-    echo "Error";
+if ($sql->execute() === TRUE) {
+    header("location: index.php");
+} else {
+    echo "Erro: " . $conn->error;
 }
 
+$sql->close();
 $conn->close();
-
 ?>
+
